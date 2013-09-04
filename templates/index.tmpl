@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>mch2: mail check web service</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="css/mch2.css" rel="stylesheet" />
+
+    <style type="text/css">
+      html,
+      body {
+        height: 100%;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        color: #34495e;
+        font-weight: 700;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="jumbotron color-clouds bgcolor-turquoise">
+        <div class="container">
+          <h1>mch2</h1>
+          <p class="lead">a powerful, flexible, programmable web service to check your mail for Thunderbird.</p>
+        </div>
+      </div>
+
+      <div class="container">
+      </div>
+
+      <div id="push">
+      </div>
+    </div><!-- end wrap -->
+
+    <div id="footer">
+      <footer class="panel-footer color-clouds bgcolor-turquoise" style="height: 100%;">
+        <p style="float: right;">
+          <img src="/images/logo120x80.png" />
+        </p>
+        <p>
+          mch2 version <strong><% @var version %></strong> by <strong><% @var author %></strong><br />
+          deploy on <strong><% @var deploy-time %></strong>
+        </p>
+        <p>
+          <small>&copy; 2013 tamura shingo</small>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

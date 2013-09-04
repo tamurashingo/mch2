@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        buttons="accept, cancel"
+        title="mch2 settings"
+        id="mch2settings"
+        onload="onLoad()"
+        flex="1"
+        ondialogaccept="return gMch2Set.savePrefs();"
+        ondialogcancel="return gMch2Set.cancelPrefs();">
+
+<script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
+<script type="application/x-javascript" src="chrome://mch2/content/settings.js" />
+
+<label value="mch2 settings" style="font-size: 18px; font-weight:700;"/>
+
+<!-- server setting -->
+<groupbox>
+    <caption label="mch2 server settings"/>
+    <hbox>
+        <label control="mch2server" value="mch2 server"/>
+        <textbox id="mch2server" value=""/>
+    </hbox>
+</groupbox>
+
+<spacer/>
+
+<!-- client setting -->
+<groupbox>
+    <caption label="mch2 client settings"/>
+
+    <hbox>
+        <label control="mch2user" value="username"/>
+        <textbox id="mch2user" value="xxxx@xxxxxx" />
+    </hbox>
+
+</groupbox>
+
+</dialog>

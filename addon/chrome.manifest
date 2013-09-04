@@ -1,0 +1,2 @@
+content mch2 content/
+overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://mch2/content/mch2.xul

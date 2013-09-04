@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript" src="chrome://mch2/content/mch2.js" />
+  <statusbar id="status-bar">
+    <button type="menu-button" label="mch2 check!" onclick='gMch2.check();'>
+      <menupopup>
+        <menuitem label="check" onclick='gMch2.check();'/>
+        <menuseparator />
+        <menuitem label="config" onclick="window.openDialog('chrome://mch2/content/settings.xul', 'mch2settings', 'chrome,modal,dialog,centerscreen');"/>
+        <menuitem label="about" onclick='window.alert("mch2");'/>
+      </menupopup>
+    </button>
+  </statusbar>
+</overlay>
