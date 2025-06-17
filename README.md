@@ -4,6 +4,8 @@
 チェック内容は `CommonLisp` にて記述します。
 
 
+※ このツールは2013年に作成したものです。
+
 ## require
 
 - Common Lisp 処理系
