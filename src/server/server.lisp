@@ -15,10 +15,6 @@
                 :stop)
   (:import-from :lack.builder
                 :builder)
-  (:import-from :lack.response
-                :response-headers)
-;  (:import-from :clack.middleware.static
-;                :<clack-middleware-static>)
   (:import-from :mch2.server.app
                 :<app>)
   (:import-from :mch2.util
