@@ -5,9 +5,7 @@
 
 (in-package :cl-user)
 (defpackage mch2.server.app
-  (:use :cl)
-  (:import-from :clack
-                :call))
+  (:use :cl))
 
 (in-package :mch2.server.app)
 

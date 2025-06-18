@@ -13,12 +13,8 @@
   (:import-from :clack
                 :clackup
                 :stop)
-  (:import-from :clack.builder
+  (:import-from :lack.builder
                 :builder)
-  (:import-from :clack.response
-                :headers)
-  (:import-from :clack.middleware.static
-                :<clack-middleware-static>)
   (:import-from :mch2.server.app
                 :<app>)
   (:import-from :mch2.util
@@ -45,7 +41,7 @@
 
 (defun build (app)
   (builder
-   (<clack-middleware-static>
+   (:static
     :path (lambda (path)
             (when (ppcre:scan "^(?:/images/|/css/|/js/|/html/|/favicon.ico$)" path)
               path))
@@ -59,7 +55,6 @@
 (setf (route *app* "*")
       #'(lambda (params)
           (declare (ignore params))
-          (setf (headers *response* :content-type) "text/html")
           (or (next-route)
               `(404
                 (:content-type "text/html")
