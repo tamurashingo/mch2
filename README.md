@@ -4,42 +4,62 @@
 チェック内容は `CommonLisp` にて記述します。
 
 
-※ このツールは2013年に作成したものです。
+※ このツールは2013年に作成したものを2025年の環境で動くように修正しています
 
 ## require
 
-- Common Lisp 処理系
-  - SBCLでテスト済み
+- Docker
 - Thunderbird
   - Thunderbirdの拡張を使用します
 
 
-## サーバの起動と停止
+## setup
+
+docker image を作成します。
+
+```sh
+make setup
+```
+
+## 運用サーバの起動と停止
 
 ### 起動
 
-`mch2` をロードします
+サーバを起動します。
+勝手にライブラリと mch2 を読み込んで起動します。
 
-```lisp
-(ql:quickload :mch2)
+起動後は repl が動いている状態で待機となります。
+
+
+```sh
+make up
 ```
 
-サーバを起動させます。
 
-```lisp
-(mch2.server:start-server)
-```
-
-http://localhost:5000/
+http://localhost:5000/ 
 
 にアクセスして、ページが表示されればサーバが動いています。
 
 
+![サーバの起動確認](img/mch2.png)
+
+
+また、 swank サーバが動いているので、 slime 等でアクセスすることができます。
+
+```elisp
+(slime-connect "localhost" 4005)
+```
+
+
 ### 停止
 
+make から停止させます。
+
 ```lisp
-(mch2.server:stop-server)
+make down
 ```
+
+repl から `(exit)` でも停止できます。
 
 
 ## 設定
@@ -104,8 +124,64 @@ Config でサーバ情報を使用者情報を入力します。
 
 このツールはチェックだけなので、チェックで異常が発生してもメールはそのまま送ることができます。
 
+
+## 開発について
+
+Makefile に開発用の docker を用意しています。
+
+
+**開発用サーバの起動**
+
+```sh
+make dev.up
+```
+
+**開発用サーバの停止**
+
+```sh
+make dev.down
+```
+
+### 開発サーバでの mch2 の起動
+
+swank サーバを動かしているので、 slime から接続します。
+
+```elisp
+(slime-connect "localhost" 4005)
+```
+
+各種環境変数を設定しているので、 `quicklisp` でそのまま読み込むことができます。
+
+```lisp
+(ql:quickload :mch2)
+```
+
+**`mch2` の起動**
+
+```lisp
+(mch2.server:start-server)
+```
+
+**`mch2` の停止**
+
+```lisp
+(mch2.server:stop-server)
+```
+
+
+**開発方法**
+
+Emacs や VSCode 等でファイルを修正します。
+ファイルの修正後は `mch2` を読み直します。
+
+```lisp
+(ql:quickload :mch2)
+```
+
+
+
 # License
-Copyright &copy; 2013 tamura shingo
+Copyright &copy; 2013, 2025 tamura shingo
 Licensed under the [MIT License][MIT].
 
 [MIT]: http://www.opensource.org/licenses/mit-license.php

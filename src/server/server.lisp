@@ -165,7 +165,8 @@
                                                                 #\Space
                                                                 :timezone)))
     (setf handler
-          (clackup (build *app*))))
+          (clackup (build *app*)
+                   :address "0.0.0.0")))
   
   @export
   (defun stop-server ()
