@@ -34,8 +34,7 @@
                 :depends-on ("mch2" "util")
                 :components
                 ((:file "mail")
-                 (:file "basic" :depends-on ("mail"))
-                 (:file "mon" :depends-on ("mail" "basic"))))
+                 (:file "basic" :depends-on ("mail"))))
                (:module "util"
                 :pathname "src/util"
                 :components
